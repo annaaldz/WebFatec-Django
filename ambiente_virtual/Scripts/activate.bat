@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\Users\annac\WebFatec-Django\ambiente_virtual
+set VIRTUAL_ENV=C:\Users\emill\Desktop\WebFatec-Django\ambiente_virtual
 
 if not defined PROMPT set PROMPT=$P$G
 
