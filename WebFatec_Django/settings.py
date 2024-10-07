@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'access',
+    'home',
 ]
 
 MIDDLEWARE = [
@@ -76,8 +77,12 @@ WSGI_APPLICATION = 'WebFatec_Django.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres.hmisfecbeubikogesdpb',  # Usuário fornecido
+        'PASSWORD': '1431432312015@Fatec',  # Substitua por sua senha
+        'HOST': 'aws-0-sa-east-1.pooler.supabase.com',  # Host fornecido
+        'PORT': '6543',  # Porta fornecida
     }
 }
 
