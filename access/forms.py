@@ -11,7 +11,7 @@ class CustomUserCreationForm(UserCreationForm):
         help_text="Sua senha deve conter pelo menos 8 caracteres."
     )
     password2 = forms.CharField(
-        label='Confirmação de Senha',  # Define o rótulo como "Confirmação de Senha"
+        label='Confirmar senha',  # Define o rótulo como "Confirmação de Senha"
         widget=forms.PasswordInput,
         help_text="Digite a mesma senha novamente."
     )

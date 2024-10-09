@@ -3,14 +3,47 @@
 <div class="shadow-wrap">
     <div class="form-wrap">
         <h1>Login</h1>
-<form method="POST">
-    {% csrf_token %}
-    {{form}}
-    <button type="submit">Entrar</button>
-</form> 
-<div class="container">
-<p>Não tem uma conta?</p><a class="signup-link" href="{% url 'access:authView' %}">Signup</a>
-</div>
-</div>
+
+        <form method="POST">
+            {% csrf_token %}
+            
+            {# Renderizar manualmente o campo de email, caso esteja no formulário padrão #}
+            <div class="form-group">
+                {{ form.username.label_tag }}
+                {{ form.username }}
+                {% if form.username.errors %}
+                    <div class="error">
+                        <ul>
+                            {% for error in form.username.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+            </div>
+
+            {# Renderizar o campo de senha com o rótulo modificado para 'Senha' #}
+            <div class="form-group">
+                <label for="password">Senha:</label>
+                {{ form.password }}
+                {% if form.password.errors %}
+                    <div class="error">
+                        <ul>
+                            {% for error in form.password.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+            </div>
+
+            <button type="submit">Entrar</button>
+        </form>
+        
+        <div class="container">
+            <p>Não tem uma conta?</p>
+            <a class="signup-link" href="{% url 'access:authView' %}">Signup</a>
+        </div>
+    </div>
 </div>
 {% endblock content %}
