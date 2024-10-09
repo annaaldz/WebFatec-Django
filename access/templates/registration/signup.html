@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="shadow-wrap">
+    <div class="form-wrap">
+        <h1>Cadastrar-se</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{form}}
+    <button type="submit">Cadastrar </button>
+</form> 
+<div class="container">
+<p>já possui uma conta?</p><a class="signup-link" href="{% url 'access:login' %}">Login</a>
+</div>
+</div>
+</div>
+{% endblock content %}

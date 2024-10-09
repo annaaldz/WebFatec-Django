@@ -4,11 +4,11 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 
 @login_required
-def login(request):
-    return render(request, "login.html", {})
+def home(request):
+    return render(request, "home.html", {})
 
 
-def signup(request):
+def authView(request):
     if request.method == "POST":
         form = UserCreationForm(request.POST or None)
         if form.is_valid():
@@ -16,5 +16,5 @@ def signup(request):
             return redirect("access:login")
     else:
         form = UserCreationForm()
-    return render(request, "signup.html", {"form": form})
+    return render(request, "registration/signup.html", {"form": form})
 

@@ -1,0 +1,103 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Mulish', sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #fff;
+}
+
+.shadow-wrap{
+    border-radius: 5px;
+    padding: 25px;
+    background-color: #f0f2fb;
+}
+
+.form-wrap{
+    background-color: #fff;
+    padding: 70px;
+}
+
+.form-wrap form *{
+    display: block;
+    width: 100%;
+}
+
+.form-wrap form label{
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 26px;
+}
+
+.form-wrap form input{
+    padding: 12px 20px;
+    border-radius: 5px;
+    border: 1px solid #dae1f5;
+    background: #fff;
+    color: #545d7a;
+}
+
+#id_username{
+    margin-bottom: 20px;
+}
+
+.form-wrap button{
+    border-radius: 5px;
+    background: #10182f;
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+    padding: 12px 68px;
+    font-weight: 700;
+    border: none;
+    margin-top: 30px;
+    line-height: 26px;
+}
+
+.signup-link{
+    color: #10182f;
+    text-decoration: none;
+}
+.signup-link:hover{
+    text-decoration: underline;
+}
+
+.container{
+    display: flex;
+    align-items: center; 
+    font-size: 15px;
+    margin-top: 20px;
+    text-align: center;
+    line-height: 25px;
+}
+
+.container p{
+    color: #545d7a;
+    margin-right: 5px; 
+}
+
+.logout{
+    position: absolute;
+    top: 0;    /* Alinha no topo da tela */
+    left: 0;   /* Alinha à esquerda da tela */
+    padding: 10px;  /* Adiciona algum espaçamento */
+    text-decoration: none;  /* Remove o sublinhado do link */
+    color: #10182f;
+    text-decoration: none;
+}
+
+.logout:hover{
+    text-decoration: underline;
+}
+
+h1{
+    text-align: center;
+    padding-bottom: 25px;
+}
