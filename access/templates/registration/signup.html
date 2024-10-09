@@ -3,14 +3,71 @@
 <div class="shadow-wrap">
     <div class="form-wrap">
         <h1>Cadastrar-se</h1>
-<form method="POST">
-    {% csrf_token %}
-    {{form}}
-    <button type="submit">Cadastrar </button>
-</form> 
-<div class="container">
-<p>já possui uma conta?</p><a class="signup-link" href="{% url 'access:login' %}">Login</a>
-</div>
-</div>
+        
+        <form method="POST">
+            {% csrf_token %}
+            
+            {# Verifica se há erros gerais no formulário #}
+            {% if form.non_field_errors %}
+                <div class="alert alert-danger">
+                    <ul>
+                        {% for error in form.non_field_errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+            
+            {# Exibe os campos e os erros associados #}
+            <div class="form-group">
+                {{ form.email.label_tag }}
+                {{ form.email }}
+                {% if form.email.errors %}
+                    <div class="error">
+                        <ul>
+                            {% for error in form.email.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+            </div>
+            
+            <div class="form-group">
+                {{ form.password1.label_tag }}
+                {{ form.password1 }}
+                {% if form.password1.errors %}
+                    <div class="error">
+                        <ul>
+                            {% for error in form.password1.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+            </div>
+            
+            <div class="form-group">
+                {{ form.password2.label_tag }}
+                {{ form.password2 }}
+                {% if form.password2.errors %}
+                    <div class="error">
+                        <ul>
+                            {% for error in form.password2.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+            </div>
+
+            <button type="submit">Cadastrar</button>
+        </form>
+        
+        <div class="container">
+            <p>Já possui uma conta?</p>
+            <a class="signup-link" href="{% url 'access:login' %}">Login</a>
+        </div>
+    </div>
 </div>
 {% endblock content %}

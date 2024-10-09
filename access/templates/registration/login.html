@@ -6,7 +6,7 @@
 <form method="POST">
     {% csrf_token %}
     {{form}}
-    <button type="submit">Logar</button>
+    <button type="submit">Entrar</button>
 </form> 
 <div class="container">
 <p>Não tem uma conta?</p><a class="signup-link" href="{% url 'access:authView' %}">Signup</a>
