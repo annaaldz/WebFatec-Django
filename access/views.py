@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .forms import CustomUserCreationForm 
+from django.contrib import messages
+
 
 @login_required
 def home(request):
@@ -13,6 +15,7 @@ def authView(request):
             user = form.save(commit=False)
             user.username = user.email  # Usa o email como nome de usuário
             user.save()
+            messages.success(request, "Cadastro realizado com sucesso!")
             return redirect("access:login")
     else:
         form = CustomUserCreationForm()  # Use o formulário personalizado

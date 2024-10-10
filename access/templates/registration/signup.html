@@ -70,4 +70,13 @@
         </div>
     </div>
 </div>
+    <div class="message">
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
 {% endblock content %}
