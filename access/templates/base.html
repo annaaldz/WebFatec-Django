@@ -11,6 +11,14 @@
     <link rel="stylesheet" href="{% static 'styles/login.css' %}">
 </head>
 <body>
-    {% block content %}{% endblock content %}
+    <div class="container">
+        <div class="left-section">
+            <h1>Fatec</h1>
+            <p>Carapicuíba</p>
+        </div>
+        <div class="right-section">
+            {% block content %}{% endblock content %}
+        </div>
+    </div>
 </body>
 </html>

@@ -1,54 +1,99 @@
-*{
+/* Reset de estilo e configurações básicas */
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: 'Mulish', sans-serif;
 }
 
-body{
+html, body {
+    height: 100%;
+}
+
+/* Estrutura de layout para divisão da tela */
+.container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.left-section {
+    width: 40%;
+    background-color: #1a348d; /* Cor de fundo azul */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    padding: 20px;
+    margin: 0;
+    line-height: 0.5;
+    
+}
+
+.left-section h1 {
+    font-family: 'Konsens', sans-serif;
+    font-weight: 600;
+    font-size: 100px;
+}
+
+.left-section p {
+    color: #f6f6f7;
+    margin-left: 100px;
+    font-size: 30px;
+    font-family: 'Konsens', sans-serif;
+    line-height: 0.5;
+}
+
+
+.right-section {
+    width: 60%;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: #fff;
+    background-color: #ffffff; /* Cor de fundo branco */
+    padding: 20px;
 }
 
-.shadow-wrap{
+/* Estilos para o formulário */
+.shadow-wrap {
     border-radius: 5px;
     padding: 25px;
     background-color: #f0f2fb;
+    width: 100%;
+    max-width: 400px; /* Largura máxima para o formulário */
 }
 
-.form-wrap{
+.form-wrap {
     background-color: #fff;
-    padding: 70px;
+    padding: 40px;
+    width: 100%;
+    max-width: 350px; /* Limite de largura para evitar que o formulário se estique */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra leve para destacar */
 }
 
-.form-wrap form *{
+.form-wrap form * {
     display: block;
     width: 100%;
 }
 
-.form-wrap form label{
+.form-wrap form label {
     margin-bottom: 5px;
     font-size: 14px;
     font-weight: 700;
     line-height: 26px;
 }
 
-.form-wrap form input{
+.form-wrap form input {
     padding: 12px 20px;
     border-radius: 5px;
     border: 1px solid #dae1f5;
     background: #fff;
     color: #545d7a;
-}
-
-#id_username{
     margin-bottom: 20px;
 }
 
-.form-wrap button{
+.form-wrap button {
     border-radius: 5px;
     background: #10182f;
     color: #fff;
@@ -59,45 +104,35 @@ body{
     border: none;
     margin-top: 30px;
     line-height: 26px;
+    cursor: pointer;
 }
 
-.signup-link{
+.signup-link {
     color: #10182f;
     text-decoration: none;
 }
-.signup-link:hover{
+
+.signup-link:hover {
     text-decoration: underline;
 }
 
-.container{
-    display: flex;
-    align-items: center; 
-    font-size: 15px;
-    margin-top: 20px;
-    text-align: center;
-    line-height: 25px;
-}
 
-.container p{
+.conta p {
     color: #545d7a;
-    margin-right: 5px; 
+    font-size: 15px; /* Tamanho padrão do texto */
+    text-align: center;
+    margin-right: 5px;
 }
 
-.logout{
-    position: absolute;
-    top: 0;    /* Alinha no topo da tela */
-    left: 0;   /* Alinha à esquerda da tela */
-    padding: 10px;  /* Adiciona algum espaçamento */
-    text-decoration: none;  /* Remove o sublinhado do link */
-    color: #10182f;
-    text-decoration: none;
+.conta {
+    text-align: center;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.logout:hover{
-    text-decoration: underline;
-}
-
-h1{
+h1 {
     text-align: center;
     padding-bottom: 25px;
 }
@@ -114,4 +149,18 @@ h1{
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 15px;
+}
+
+/* Estilos adicionais para links e botão de logout */
+.logout {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 10px;
+    color: #10182f;
+    text-decoration: none;
+}
+
+.logout:hover {
+    text-decoration: underline;
 }
