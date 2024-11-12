@@ -31,6 +31,12 @@ html, body {
     
 }
 
+@media (max-width: 430px) {
+    .left-section {
+        display: none !important;
+    }
+}
+
 .left-section h1 {
     font-family: 'Konsens', sans-serif;
     font-weight: 600;
