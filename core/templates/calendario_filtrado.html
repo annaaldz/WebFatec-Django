@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Calendário Filtrado</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/estilo_sist.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.11.0/main.min.js"></script>
+</head>
+
+<body>
+    <div class="sidebar">
+        <img src="{% static 'images/fatec.png' %}" alt="Logo Fatec" width="150">
+        <a href="{% url 'calendario_geral' %}">Home</a>
+        <a href="#">Sair</a>
+    </div>
+    
+    <div class="main-content">
+        <h1>Calendário Acadêmico Filtrado</h1>
+        
+        <!-- Formulário de Filtro -->
+        <div class="filter-form">
+            <form action="{% url 'calendario_filtrado' %}" method="get">
+                <input type="text" name="curso" placeholder="Curso" value="{{ curso }}">
+                <input type="number" name="periodo" placeholder="Período (1-10)" value="{{ periodo }}">
+                <select name="turno">
+                    <option value="Manhã" {% if turno == "Manhã" %}selected{% endif %}>Manhã</option>
+                    <option value="Tarde" {% if turno == "Tarde" %}selected{% endif %}>Tarde</option>
+                    <option value="Noite" {% if turno == "Noite" %}selected{% endif %}>Noite</option>
+                </select>
+                <button type="submit" class="filter-button">Pesquisar</button>
+            </form>
+        </div>
+
+        <!-- Calendário -->
+        <div id="calendar"></div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var calendarEl = document.getElementById('calendar');
+                var calendar = new FullCalendar.Calendar(calendarEl, {
+                    initialView: 'dayGridMonth',
+                    locale: 'pt-br',
+                    events: [
+                        {% for feriado in feriados %}
+                        {
+                            title: '{{ feriado.nome }}',
+                            start: '{{ feriado.data }}',
+                            color: 'red'
+                        },
+                        {% endfor %}
+                        {% for aula in aulas %}
+                        {
+                            title: '{{ aula.turma.curso.nome }} - Sala {{ aula.sala.numero }}',
+                            start: '{{ aula.data }}',
+                            color: {% if aula.status == 'presente' %} 'green'
+                                   {% elif aula.status == 'caminho' %} 'yellow'
+                                   {% elif aula.status == 'ausente' %} 'orange'
+                                   {% endif %},
+                            textColor: 'black',
+                            extendedProps: {
+                                sala: '{{ aula.sala.numero }}',
+                                turno: '{{ aula.turma.turno.nome }}'
+                            }
+                        },
+                        {% endfor %}
+                    ]
+                });
+                calendar.render();
+            });
+        </script>
+    </div>
+</body>
+</html>
